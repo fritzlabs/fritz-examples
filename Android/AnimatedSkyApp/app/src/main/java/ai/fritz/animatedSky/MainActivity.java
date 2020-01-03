@@ -24,15 +24,17 @@ import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ai.fritz.core.Fritz;
-import ai.fritz.skysegmentationmodelfast.SkySegmentationOnDeviceModelFast;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictorOptions;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationResult;
 import ai.fritz.vision.imagesegmentation.MaskClass;
+import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
 
 public class MainActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
@@ -67,7 +69,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         super.onCreate(savedInstanceState);
         Fritz.configure(getApplicationContext(), API_KEY);
 
-        SkySegmentationOnDeviceModelFast onDeviceModel = new SkySegmentationOnDeviceModelFast();
+        SegmentationOnDeviceModel onDeviceModel = FritzVisionModels.getSkySegmentationOnDeviceModel(ModelVariant.FAST);
         options = new FritzVisionSegmentationPredictorOptions();
         options.confidenceThreshold = .6f;
         predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);
@@ -240,6 +242,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
             image.close();
             return;
         }
+
         // Feel free to uncomment if you'd like to try it out with a static image
 //         Bitmap testImage = getBitmapForAsset(this, "climbing.png");
 //         visionImage = FritzVisionImage.fromBitmap(testImage, ImageRotation.ROTATE_0);

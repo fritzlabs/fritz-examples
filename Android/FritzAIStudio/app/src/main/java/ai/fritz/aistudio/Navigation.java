@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import ai.fritz.aistudio.activities.custommodel.CustomTFLiteActivity;
 import ai.fritz.aistudio.activities.custommodel.CustomTFMobileActivity;
-import ai.fritz.aistudio.activities.vision.HairSegmentationActivity;
 import ai.fritz.aistudio.activities.vision.ImageLabelingActivity;
 import ai.fritz.aistudio.activities.vision.ImageSegmentationActivity;
 import ai.fritz.aistudio.activities.vision.ObjectDetectionActivity;
@@ -49,11 +48,6 @@ public class Navigation {
 
     public static void goToPoseEstimation(Context context) {
         Intent poseEstimation = new Intent(context, PoseEstimationActivity.class);
-        context.startActivity(poseEstimation);
-    }
-
-    public static void goToHairSegmentation(Context context) {
-        Intent poseEstimation = new Intent(context, HairSegmentationActivity.class);
         context.startActivity(poseEstimation);
     }
 }

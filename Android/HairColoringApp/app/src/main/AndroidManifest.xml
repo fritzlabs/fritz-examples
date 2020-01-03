@@ -25,13 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.CameraActivity"
+            android:name=".activities.LiveHairColorActivity"
             android:parentActivityName=".activities.MainActivity"/>
         <activity
-            android:name=".activities.MediaActivity"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity
-            android:name=".activities.PickerActivity"
+            android:name=".activities.VideoHairColorActivity"
             android:parentActivityName=".activities.MainActivity" />
         <service
             android:name="ai.fritz.core.FritzCustomModelService"

@@ -8,9 +8,9 @@ import android.util.Size;
 import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.aistudio.R;
 import ai.fritz.aistudio.activities.BaseRecordingActivity;
-import ai.fritz.stylepaintingmodels.PaintingStyles;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.styletransfer.FritzVisionStylePredictor;
 import ai.fritz.vision.styletransfer.FritzVisionStylePredictorOptions;
 import ai.fritz.vision.styletransfer.FritzVisionStyleResult;
@@ -43,7 +43,7 @@ public class StyleTransferActivity extends BaseRecordingActivity implements OnIm
     }
 
     private FritzOnDeviceModel getModel(int choice) {
-        FritzOnDeviceModel[] styles = PaintingStyles.getAll();
+        FritzOnDeviceModel[] styles = FritzVisionModels.getPaintingStyleModels().getAll();
         return styles[choice];
     }
 }

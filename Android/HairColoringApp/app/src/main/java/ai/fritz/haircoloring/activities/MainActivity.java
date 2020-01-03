@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Context context = v.getContext();
-                        Intent liveHair = new Intent(context, CameraActivity.class);
+                        Intent liveHair = new Intent(context, LiveHairColorActivity.class);
                         context.startActivity(liveHair);
                     }
                 }));
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Context context = v.getContext();
-                        Intent selectVideo = new Intent(context, PickerActivity.class);
+                        Intent selectVideo = new Intent(context, VideoHairColorActivity.class);
                         context.startActivity(selectVideo);
                     }
                 }));
