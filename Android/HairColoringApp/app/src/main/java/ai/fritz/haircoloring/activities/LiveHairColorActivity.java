@@ -8,10 +8,11 @@ import android.util.Size;
 
 import com.github.veritas1.verticalslidecolorpicker.VerticalSlideColorPicker;
 
-import ai.fritz.hairsegmentationmodelfast.HairSegmentationOnDeviceModelFast;
 import ai.fritz.haircoloring.R;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.BlendMode;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictorOptions;
@@ -20,12 +21,11 @@ import ai.fritz.vision.imagesegmentation.MaskClass;
 import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
 
-public class CameraActivity extends BaseLiveGPUActivity {
+public class LiveHairColorActivity extends BaseLiveGPUActivity {
     private int maskColor = Color.RED;
-    private static final float HAIR_CONFIDENCE_THRESHOLD = .5f;
     private static final int HAIR_ALPHA = 180;
     private static final BlendMode BLEND_MODE = BlendMode.SOFT_LIGHT;
-    private static final boolean RUN_ON_GPU = true;
+    private static final boolean RUN_ON_GPU = false;
 
     private FritzVisionSegmentationPredictor hairPredictor;
     private FritzVisionSegmentationResult hairResult;
@@ -37,13 +37,12 @@ public class CameraActivity extends BaseLiveGPUActivity {
         setCameraFacingDirection(CameraCharacteristics.LENS_FACING_FRONT);
         super.onCreate(savedInstanceState);
 
-        // Create the segmentation options.
+        // Create the segmentation options
         options = new FritzVisionSegmentationPredictorOptions();
-        options.confidenceThreshold = HAIR_CONFIDENCE_THRESHOLD;
         options.useGPU = RUN_ON_GPU;
 
-        // Set the on device model
-        onDeviceModel = new HairSegmentationOnDeviceModelFast();
+        // Set the on-device model
+        onDeviceModel = FritzVisionModels.getHairSegmentationOnDeviceModel(ModelVariant.FAST);
 
         // Load the predictor when the activity is created (iff not running on the GPU)
         if (!RUN_ON_GPU) {
@@ -80,7 +79,7 @@ public class CameraActivity extends BaseLiveGPUActivity {
             hairPredictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);
         }
         hairResult = hairPredictor.predict(fritzVisionImage);
-        Bitmap alphaMask = hairResult.buildSingleClassMask(MaskClass.HAIR, HAIR_ALPHA, .8f, options.confidenceThreshold, maskColor);
+        Bitmap alphaMask = hairResult.buildSingleClassMask(MaskClass.HAIR, HAIR_ALPHA, options.confidenceThreshold, options.confidenceThreshold, maskColor);
         fritzSurfaceView.drawBlendedMask(fritzVisionImage, alphaMask, BLEND_MODE, getCameraFacingDirection() == CameraCharacteristics.LENS_FACING_FRONT);
     }
 }

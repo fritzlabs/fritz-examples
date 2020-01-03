@@ -5,23 +5,29 @@ import android.util.Size;
 
 import java.util.List;
 
-import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.aistudio.activities.BaseLiveVideoActivity;
-import ai.fritz.poseestimationmodelfast.PoseEstimationOnDeviceModelFast;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
+import ai.fritz.vision.ModelVariant;
+import ai.fritz.vision.filter.OneEuroFilterMethod;
 import ai.fritz.vision.poseestimation.FritzVisionPosePredictor;
+import ai.fritz.vision.poseestimation.FritzVisionPosePredictorOptions;
 import ai.fritz.vision.poseestimation.FritzVisionPoseResult;
 import ai.fritz.vision.poseestimation.Pose;
+import ai.fritz.vision.poseestimation.PoseOnDeviceModel;
 
 public class PoseEstimationActivity extends BaseLiveVideoActivity {
 
     private FritzVisionPosePredictor posePredictor;
     private FritzVisionPoseResult poseResult;
+    private FritzVisionPosePredictorOptions options;
 
     @Override
     protected void onCameraSetup(final Size cameraSize) {
-        FritzOnDeviceModel onDeviceModel = new PoseEstimationOnDeviceModelFast();
+        PoseOnDeviceModel onDeviceModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
+        options = new FritzVisionPosePredictorOptions();
+        options.smoothingOptions = new OneEuroFilterMethod();
         posePredictor = FritzVision.PoseEstimation.getPredictor(onDeviceModel);
     }
 

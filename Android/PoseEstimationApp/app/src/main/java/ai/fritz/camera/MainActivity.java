@@ -7,14 +7,16 @@ import android.util.Size;
 import java.util.List;
 
 import ai.fritz.core.Fritz;
-import ai.fritz.poseestimationmodelfast.PoseEstimationOnDeviceModelFast;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.poseestimation.FritzVisionPosePredictor;
 import ai.fritz.vision.poseestimation.FritzVisionPoseResult;
 import ai.fritz.vision.poseestimation.Pose;
+import ai.fritz.vision.poseestimation.PoseOnDeviceModel;
 
 
 public class MainActivity extends LiveCameraActivity {
@@ -37,7 +39,7 @@ public class MainActivity extends LiveCameraActivity {
         // ----------------------------------------------
         // A FritzOnDeviceModel object is available when a model has been
         // successfully downloaded and included with the app.
-        PoseEstimationOnDeviceModelFast poseEstimationOnDeviceModel = new PoseEstimationOnDeviceModelFast();
+        PoseOnDeviceModel poseEstimationOnDeviceModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
         predictor = FritzVision.PoseEstimation.getPredictor(poseEstimationOnDeviceModel);
 
         // ----------------------------------------------

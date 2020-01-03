@@ -6,19 +6,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Size;
 
+import ai.fritz.aistudio.R;
+import ai.fritz.aistudio.activities.BaseRecordingActivity;
 import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.core.utils.FritzModelManager;
 import ai.fritz.core.utils.FritzOptional;
-import ai.fritz.aistudio.activities.BaseRecordingActivity;
-import ai.fritz.aistudio.R;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.PredictorStatusListener;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
+import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictorOptions;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationResult;
-import ai.fritz.vision.imagesegmentation.livingroomsegmentation.LivingRoomSegmentationManagedModelFast;
-import ai.fritz.vision.imagesegmentation.outdoorsegmentation.OutdoorSegmentationManagedModelFast;
-import ai.fritz.vision.imagesegmentation.peoplesegmentation.PeopleSegmentationManagedModelFast;
 import ai.fritz.vision.imagesegmentation.SegmentationManagedModel;
 import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
@@ -27,10 +27,13 @@ public class ImageSegmentationActivity extends BaseRecordingActivity implements 
 
     private static final String TAG = ImageSegmentationActivity.class.getSimpleName();
     private FritzVisionSegmentationPredictor predictor;
+    private FritzVisionSegmentationPredictorOptions options;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        options = new FritzVisionSegmentationPredictorOptions();
     }
 
     @Override
@@ -51,11 +54,8 @@ public class ImageSegmentationActivity extends BaseRecordingActivity implements 
         FritzOptional<FritzOnDeviceModel> onDeviceModelOpt = FritzModelManager.getActiveOnDeviceModel(managedModel.getModelId());
         if (onDeviceModelOpt.isPresent()) {
             showPredictorReadyViews();
-            FritzOnDeviceModel onDeviceModel = onDeviceModelOpt.get();
-            SegmentationOnDeviceModel segmentOnDeviceModel = SegmentationOnDeviceModel.mergeFromManagedModel(
-                    onDeviceModel,
-                    managedModel);
-            predictor = FritzVision.ImageSegmentation.getPredictor(segmentOnDeviceModel);
+            SegmentationOnDeviceModel onDeviceModel = new SegmentationOnDeviceModel(onDeviceModelOpt.get(), managedModel.getMaskClasses());
+            predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);
         } else {
             showPredictorNotReadyViews();
             FritzVision.ImageSegmentation.loadPredictor(managedModel, new PredictorStatusListener<FritzVisionSegmentationPredictor>() {
@@ -70,15 +70,15 @@ public class ImageSegmentationActivity extends BaseRecordingActivity implements 
     }
 
     private SegmentationManagedModel getManagedModel(int choice) {
-
         switch (choice) {
             case (1):
-                return new LivingRoomSegmentationManagedModelFast();
+                return FritzVisionModels.getLivingRoomSegmentationManagedModel(ModelVariant.FAST);
             case (2):
-                return new OutdoorSegmentationManagedModelFast();
+                return FritzVisionModels.getOutdoorSegmentationManagedModel(ModelVariant.FAST);
             default:
-                return new PeopleSegmentationManagedModelFast();
+                return FritzVisionModels.getPeopleSegmentationManagedModel(ModelVariant.FAST);
         }
+
     }
 }
 

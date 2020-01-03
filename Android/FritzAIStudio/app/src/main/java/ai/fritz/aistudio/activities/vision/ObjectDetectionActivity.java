@@ -6,10 +6,10 @@ import android.util.Size;
 import java.util.List;
 
 import ai.fritz.core.FritzOnDeviceModel;
-import ai.fritz.objectdetectionmodelfast.ObjectDetectionOnDeviceModel;
 import ai.fritz.aistudio.activities.BaseLiveVideoActivity;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionObject;
 import ai.fritz.vision.objectdetection.FritzVisionObjectPredictor;
 import ai.fritz.vision.objectdetection.FritzVisionObjectResult;
@@ -21,7 +21,7 @@ public class ObjectDetectionActivity extends BaseLiveVideoActivity {
 
     @Override
     protected void onCameraSetup(final Size cameraSize) {
-        FritzOnDeviceModel onDeviceModel = new ObjectDetectionOnDeviceModel();
+        FritzOnDeviceModel onDeviceModel = FritzVisionModels.getObjectDetectionOnDeviceModel();
         objectPredictor = FritzVision.ObjectDetection.getPredictor(onDeviceModel);
     }
 

@@ -99,15 +99,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }));
         demoItems.add(new DemoItem(
-                getString(R.string.fritz_hair_color_title),
-                getString(R.string.fritz_hair_color_description),
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Navigation.goToHairSegmentation(v.getContext());
-                    }
-                }));
-        demoItems.add(new DemoItem(
                 getString(R.string.fritz_vision_img_seg_title),
                 getString(R.string.fritz_vision_img_seg_description),
                 new View.OnClickListener() {

@@ -59,9 +59,9 @@
     <string name="fritz_hair_color_description">Change your hair color with Image Segmentation.</string>
 
     <string-array name="img_seg_model_options">
-        <item>People 384x384</item>
-        <item>Living Room 384x384</item>
-        <item>Outdoor 384x384</item>
+        <item>People</item>
+        <item>Living Room</item>
+        <item>Outdoor</item>
     </string-array>
     <string-array name="style_transfer_options">
         <item>Bicentennial Print</item>

@@ -26,15 +26,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import ai.fritz.core.Fritz;
 import ai.fritz.core.utils.BitmapUtils;
-import ai.fritz.peoplesegmentationmodelaccurate.PeopleSegmentationOnDeviceModelAccurate;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictorOptions;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationResult;
 import ai.fritz.vision.imagesegmentation.MaskClass;
+import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
 
 public class MainActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
@@ -63,7 +65,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         super.onCreate(savedInstanceState);
         Fritz.configure(getApplicationContext(), "bbe75c73f8b24e63bc05bf81ed9d2829");
 
-        PeopleSegmentationOnDeviceModelAccurate onDeviceModel = new PeopleSegmentationOnDeviceModelAccurate();
+        SegmentationOnDeviceModel onDeviceModel = FritzVisionModels.getPeopleSegmentationOnDeviceModel(ModelVariant.ACCURATE);
         FritzVisionSegmentationPredictorOptions options = new FritzVisionSegmentationPredictorOptions();
         options.confidenceThreshold = .4f;
         predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);

@@ -20,15 +20,17 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ai.fritz.core.Fritz;
-import ai.fritz.petsegmentationmodelfast.PetSegmentationOnDeviceModelFast;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictorOptions;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationResult;
 import ai.fritz.vision.imagesegmentation.MaskClass;
+import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
 
 public class MainActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
@@ -58,7 +60,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         super.onCreate(savedInstanceState);
         Fritz.configure(this, API_KEY);
 
-        PetSegmentationOnDeviceModelFast onDeviceModel = new PetSegmentationOnDeviceModelFast();
+        SegmentationOnDeviceModel onDeviceModel = FritzVisionModels.getPetSegmentationOnDeviceModel(ModelVariant.FAST);
         options = new FritzVisionSegmentationPredictorOptions();
         options.confidenceThreshold = .4f;
         predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);

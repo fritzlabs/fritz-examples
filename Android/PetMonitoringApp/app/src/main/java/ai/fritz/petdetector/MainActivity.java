@@ -12,9 +12,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ai.fritz.core.Fritz;
-import ai.fritz.fritzvisionobjectmodel.ObjectDetectionOnDeviceModel;
+import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionObject;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
@@ -52,7 +53,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         // TODO: Add the predictor snippet here
         FritzVisionObjectPredictorOptions options = new FritzVisionObjectPredictorOptions();
         options.confidenceThreshold = .4f;
-        ObjectDetectionOnDeviceModel onDeviceModel = new ObjectDetectionOnDeviceModel();
+        FritzOnDeviceModel onDeviceModel = FritzVisionModels.getObjectDetectionOnDeviceModel();
         predictor = FritzVision.ObjectDetection.getPredictor(onDeviceModel, options);
         // ----------------------------------------------
         // END STEP 1
