@@ -10,9 +10,8 @@ import android.util.Size;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import ai.fritz.core.FritzOnDeviceModel;
-import ai.fritz.aistudio.activities.BaseCameraActivity;
 import ai.fritz.aistudio.R;
+import ai.fritz.aistudio.activities.BaseCameraActivity;
 import ai.fritz.aistudio.ui.ResultsView;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
@@ -21,6 +20,7 @@ import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageRotation;
 import ai.fritz.vision.imagelabeling.FritzVisionLabelPredictor;
 import ai.fritz.vision.imagelabeling.FritzVisionLabelResult;
+import ai.fritz.vision.imagelabeling.LabelingOnDeviceModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -65,7 +65,7 @@ public class ImageLabelingActivity extends BaseCameraActivity implements ImageRe
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
         imgRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
-        FritzOnDeviceModel onDeviceModel = FritzVisionModels.getImageLabelingOnDeviceModel();
+        LabelingOnDeviceModel onDeviceModel = FritzVisionModels.getImageLabelingOnDeviceModel();
         predictor = FritzVision.ImageLabeling.getPredictor(onDeviceModel);
     }
 

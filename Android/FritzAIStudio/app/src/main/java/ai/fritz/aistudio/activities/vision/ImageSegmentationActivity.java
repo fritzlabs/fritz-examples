@@ -54,7 +54,7 @@ public class ImageSegmentationActivity extends BaseRecordingActivity implements 
         FritzOptional<FritzOnDeviceModel> onDeviceModelOpt = FritzModelManager.getActiveOnDeviceModel(managedModel.getModelId());
         if (onDeviceModelOpt.isPresent()) {
             showPredictorReadyViews();
-            SegmentationOnDeviceModel onDeviceModel = new SegmentationOnDeviceModel(onDeviceModelOpt.get(), managedModel.getMaskClasses());
+            SegmentationOnDeviceModel onDeviceModel = new SegmentationOnDeviceModel(onDeviceModelOpt.get(), managedModel);
             predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);
         } else {
             showPredictorNotReadyViews();

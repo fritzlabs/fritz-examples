@@ -25,7 +25,7 @@ public class LiveHairColorActivity extends BaseLiveGPUActivity {
     private int maskColor = Color.RED;
     private static final int HAIR_ALPHA = 180;
     private static final BlendMode BLEND_MODE = BlendMode.SOFT_LIGHT;
-    private static final boolean RUN_ON_GPU = false;
+    private static final boolean RUN_ON_GPU = true;
 
     private FritzVisionSegmentationPredictor hairPredictor;
     private FritzVisionSegmentationResult hairResult;
