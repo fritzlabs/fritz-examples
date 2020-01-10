@@ -5,7 +5,6 @@ import android.util.Size;
 
 import java.util.List;
 
-import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.aistudio.activities.BaseLiveVideoActivity;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
@@ -13,6 +12,7 @@ import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionObject;
 import ai.fritz.vision.objectdetection.FritzVisionObjectPredictor;
 import ai.fritz.vision.objectdetection.FritzVisionObjectResult;
+import ai.fritz.vision.objectdetection.ObjectDetectionOnDeviceModel;
 
 public class ObjectDetectionActivity extends BaseLiveVideoActivity {
 
@@ -21,7 +21,7 @@ public class ObjectDetectionActivity extends BaseLiveVideoActivity {
 
     @Override
     protected void onCameraSetup(final Size cameraSize) {
-        FritzOnDeviceModel onDeviceModel = FritzVisionModels.getObjectDetectionOnDeviceModel();
+        ObjectDetectionOnDeviceModel onDeviceModel = FritzVisionModels.getObjectDetectionOnDeviceModel();
         objectPredictor = FritzVision.ObjectDetection.getPredictor(onDeviceModel);
     }
 
@@ -29,7 +29,7 @@ public class ObjectDetectionActivity extends BaseLiveVideoActivity {
     protected void handleDrawingResult(Canvas canvas, Size cameraSize) {
         if (objectResult != null) {
             List<FritzVisionObject> visionObjects = objectResult.getObjects();
-            for(FritzVisionObject object: visionObjects) {
+            for (FritzVisionObject object : visionObjects) {
                 object.draw(canvas);
             }
         }
