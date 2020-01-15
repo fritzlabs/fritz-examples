@@ -16,7 +16,7 @@ import ai.fritz.vision.video.filters.DrawSkeletonCompoundFilter;
 public class ObjectPoseStrategy extends VideoFilterStrategy {
 
     private ObjectDetectionOnDeviceModel objectModel = FritzVisionModels.getObjectDetectionOnDeviceModel();
-    private PoseOnDeviceModel poseModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
+    private PoseOnDeviceModel poseModel = FritzVisionModels.getHumanPoseEstimationOnDeviceModel(ModelVariant.FAST);
 
 
     public ObjectPoseStrategy() {

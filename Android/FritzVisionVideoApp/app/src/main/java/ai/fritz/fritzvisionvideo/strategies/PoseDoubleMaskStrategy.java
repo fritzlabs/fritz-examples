@@ -17,7 +17,7 @@ import ai.fritz.vision.video.filters.imagesegmentation.MaskOverlayFilter;
 
 public class PoseDoubleMaskStrategy extends VideoFilterStrategy {
 
-    private PoseOnDeviceModel poseModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
+    private PoseOnDeviceModel poseModel = FritzVisionModels.getHumanPoseEstimationOnDeviceModel(ModelVariant.FAST);
     private SegmentationOnDeviceModel peopleModel = FritzVisionModels.getPeopleSegmentationOnDeviceModel(ModelVariant.FAST);
     private SegmentationOnDeviceModel hairModel = FritzVisionModels.getHairSegmentationOnDeviceModel(ModelVariant.FAST);
 

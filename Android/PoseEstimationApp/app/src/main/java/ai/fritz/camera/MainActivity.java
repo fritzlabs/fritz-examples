@@ -39,7 +39,7 @@ public class MainActivity extends LiveCameraActivity {
         // ----------------------------------------------
         // A FritzOnDeviceModel object is available when a model has been
         // successfully downloaded and included with the app.
-        PoseOnDeviceModel poseEstimationOnDeviceModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
+        PoseOnDeviceModel poseEstimationOnDeviceModel = FritzVisionModels.getHumanPoseEstimationOnDeviceModel(ModelVariant.FAST);
         predictor = FritzVision.PoseEstimation.getPredictor(poseEstimationOnDeviceModel);
 
         // ----------------------------------------------
