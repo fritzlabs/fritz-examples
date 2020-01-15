@@ -25,7 +25,7 @@ public class PoseEstimationActivity extends BaseLiveVideoActivity {
 
     @Override
     protected void onCameraSetup(final Size cameraSize) {
-        PoseOnDeviceModel onDeviceModel = FritzVisionModels.getPoseEstimationOnDeviceModel(ModelVariant.FAST);
+        PoseOnDeviceModel onDeviceModel = FritzVisionModels.getHumanPoseEstimationOnDeviceModel(ModelVariant.FAST);
         options = new FritzVisionPosePredictorOptions();
         options.smoothingOptions = new OneEuroFilterMethod();
         posePredictor = FritzVision.PoseEstimation.getPredictor(onDeviceModel);

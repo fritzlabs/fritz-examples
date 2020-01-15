@@ -34,8 +34,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    implementation "ai.fritz:vision:5.0.0"
-    implementation "ai.fritz:vision-hair-segmentation-model-fast:3.0.0-beta.2"
+    implementation "ai.fritz:vision:5.0.1"
+    implementation "ai.fritz:vision-hair-segmentation-model-fast:3.0.0"
     implementation "ai.fritz:vision-people-segmentation-model-fast:3.0.0"
     implementation "ai.fritz:vision-object-detection-model-fast:3.0.0"
     implementation "ai.fritz:vision-pose-estimation-model-fast:3.0.0"
