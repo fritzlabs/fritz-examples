@@ -15,6 +15,7 @@ extension Double {
     }
 }
 
+
 class DetectObjectsViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var frameLabel: UILabel!
@@ -92,13 +93,13 @@ class DetectObjectsViewController: UIViewController, AVCaptureVideoDataOutputSam
             // Effectively center cropping the bounding box frame.
             let height = Double(cameraView.frame.height)
             let width = Double(cameraView.frame.width)
-            let yOffset = (height - width) / 2
 
             let box = prediction.boundingBox
-            let rect = box.toCGRect(imgHeight: width, imgWidth: width, xOffset: 0.0, yOffset: yOffset)
+            let rect = box.toCGRect(imgHeight: height, imgWidth: width)
             self.boundingBoxes[index].show(frame: rect,
                                            label: textLabel,
-                                           color: UIColor.red, textColor: UIColor.black)
+                                           color: UIColor.red,
+                                           textColor: UIColor.black)
         }
 
         for index in predictions.count..<self.numBoxes {
@@ -108,7 +109,6 @@ class DetectObjectsViewController: UIViewController, AVCaptureVideoDataOutputSam
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         let options = FritzVisionObjectModelOptions()
-        options.imageCropAndScaleOption = .centerCrop
         options.threshold = 0.5
 
         let image = FritzVisionImage(buffer: sampleBuffer)
@@ -119,7 +119,7 @@ class DetectObjectsViewController: UIViewController, AVCaptureVideoDataOutputSam
             if let objects = objects, objects.count > 0 {
                 let thisExecution = Date()
                 let executionTime = thisExecution.timeIntervalSince(self.lastExecution)
-                let framesPerSecond:Double = 1/executionTime
+                let framesPerSecond:Double = 1 / executionTime
                 self.lastExecution = thisExecution
 
                 DispatchQueue.main.async {
@@ -128,6 +128,7 @@ class DetectObjectsViewController: UIViewController, AVCaptureVideoDataOutputSam
                 }
             }
         }
+
     }
 }
 

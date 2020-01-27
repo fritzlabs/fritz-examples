@@ -184,11 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B2395B02376052A008E5A89 /* Build configuration list for PBXNativeTarget "FritzVisionVideoDemo" */;
 			buildPhases = (
-				AE3D6FE9F572EAE150B201BE /* ShellScript */,
+				AE3D6FE9F572EAE150B201BE /* [CP] Check Pods Manifest.lock */,
 				3B23959823760528008E5A89 /* Sources */,
 				3B23959923760528008E5A89 /* Frameworks */,
 				3B23959A23760528008E5A89 /* Resources */,
-				96F28801FC0697D4F454F6CF /* ShellScript */,
+				96F28801FC0697D4F454F6CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,7 +248,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		96F28801FC0697D4F454F6CF /* ShellScript */ = {
+		96F28801FC0697D4F454F6CF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,7 +265,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FritzVisionVideoDemo/Pods-FritzVisionVideoDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE3D6FE9F572EAE150B201BE /* ShellScript */ = {
+		AE3D6FE9F572EAE150B201BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

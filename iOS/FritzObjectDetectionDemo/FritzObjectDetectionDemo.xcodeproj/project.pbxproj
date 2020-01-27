@@ -98,11 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B3BCC0E2360AE3700898CF5 /* Build configuration list for PBXNativeTarget "FritzObjectDetectionDemo" */;
 			buildPhases = (
-				05857ECE8C80580563E7EB9D /* ShellScript */,
+				05857ECE8C80580563E7EB9D /* [CP] Check Pods Manifest.lock */,
 				3B3BCBF62360AE3600898CF5 /* Sources */,
 				3B3BCBF72360AE3600898CF5 /* Frameworks */,
 				3B3BCBF82360AE3600898CF5 /* Resources */,
-				6E82804561854BACD8C840FE /* ShellScript */,
+				6E82804561854BACD8C840FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,7 +160,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05857ECE8C80580563E7EB9D /* ShellScript */ = {
+		05857ECE8C80580563E7EB9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,7 +182,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E82804561854BACD8C840FE /* ShellScript */ = {
+		6E82804561854BACD8C840FE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
