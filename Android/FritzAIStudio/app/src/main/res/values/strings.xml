@@ -19,8 +19,8 @@
     <string name="fritz_handwriting_detection">Handwriting Detection</string>
     <string name="fritz_handwriting_detection_description">Detects numbers from 0-9. Draw a number on the canvas and guess what it is.</string>
 
-    <string name="fritz_info_title">Learn More About Fritz</string>
-    <string name="fritz_info_description">Want to add these machine learning features to your app? Check out our SDK for more details.</string>
+    <string name="fritz_info_title">Learn More About Fritz AI</string>
+    <string name="fritz_info_description">Teach your mobile app to see, hear, sense, and think.</string>
 
     <string name="fritz_object_detection_title">Object Detection</string>
     <string name="fritz_object_detection_description">Detect objects in an image and label them</string>

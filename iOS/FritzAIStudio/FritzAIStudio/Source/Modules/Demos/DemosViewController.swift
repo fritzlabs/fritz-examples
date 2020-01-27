@@ -25,7 +25,7 @@ class DemosViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let _ = tableView.cellForRow(at: indexPath) as? LinkTableViewCell, let url = URL(string: "https://app.fritz.ai/register") {
+    if let _ = tableView.cellForRow(at: indexPath) as? LinkTableViewCell, let url = URL(string: "https://www.fritz.ai") {
       UIApplication.shared.open(url)
       tableView.deselectRow(at: indexPath, animated: true)
     }
