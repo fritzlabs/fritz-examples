@@ -10,9 +10,13 @@ Here you will find code examples for all the different SDKs we offer.
 - [Android](Android)
 - [Unity](Unity)
 
+## Stay in touch with Fritz AI
+
+To keep tabs on what we’re up to, and for an inside look at the opportunities, challenges, and tools for mobile machine learning, subscribe to the [Fritz AI Newsletter](https://www.fritz.ai/newsletter?utm_campaign=fritz-examples&utm_source=github).
+
 ## Join the community
 
-[Heartbeat](https://heartbeat.fritz.ai/?utm_source=github&utm_campaign=fritz-examples) is a community of developers interested in the intersection of mobile and machine learning. [Chat with us in Slack](https://www.fritz.ai/slack?utm_source=github&utm_campaign=fritz-examples) and stay up to date on the latest mobile ML news with our [Newsletter](https://mobileml.us16.list-manage.com/subscribe?u=de53bead690affb8e9a21de8f&id=68acb5c0fd).
+[Heartbeat](https://heartbeat.fritz.ai/?utm_source=github&utm_campaign=fritz-examples) is a community of developers interested in the intersection of mobile and machine learning. [Chat with us in Slack](https://fritz.ai/slack?utm_source=github&utm_campaign=fritz-models), and stay up to date on industry news, trends, and more by subscribing to [Deep Learning Weekly](https://www.deeplearningweekly.com/?utm_campaign=fritz-examples&utm_source=github).
 
 ## Help
 
