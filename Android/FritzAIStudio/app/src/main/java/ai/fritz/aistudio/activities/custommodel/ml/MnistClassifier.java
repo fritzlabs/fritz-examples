@@ -11,9 +11,9 @@ import java.nio.ByteOrder;
 import ai.fritz.aistudio.R;
 import ai.fritz.core.FritzManagedModel;
 import ai.fritz.core.FritzOnDeviceModel;
+import ai.fritz.core.FritzTFLiteInterpreter;
 import ai.fritz.core.ModelReadyListener;
 import ai.fritz.core.utils.FritzModelManager;
-import ai.fritz.customtflite.FritzTFLiteInterpreter;
 
 
 public class MnistClassifier {

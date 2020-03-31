@@ -1,14 +1,14 @@
-# Creating Stickers with Pet Segmentation
+# Pose Estimation Demo App with Data Collection
 
 [ ![Codeship Status for fritzlabs/fritz-sdk-android](https://app.codeship.com/projects/c74152e0-65d1-0136-2d69-32e87736c6c6/status?branch=master)](https://app.codeship.com/projects/297281)
 [![Twitter](https://img.shields.io/badge/twitter-@fritzlabs-blue.svg?style=flat)](http://twitter.com/fritzlabs)
 
-In this app, the user can automatically create a sticker of their pet and save it in their camera roll.
+In this app, the user detect human poses and record the result to Fritz. For an example of a real time implementation of pose estimation, check out the [Fritz AI Studio app](https://github.com/fritzlabs/fritz-examples/blob/master/Android/FritzAIStudio/app/src/main/java/ai/fritz/aistudio/activities/vision/PoseEstimationActivity.java)
 
-This example app uses the on-device Pet Segmentation API for Android.
+This example app uses the on-device Pose Estimation API for Android.
 
-- [Overview](https://www.fritz.ai/features/image-segmentation.html)
-- [Documentation](https://docs.fritz.ai/develop/vision/image-segmentation/android.html)
+- [Overview](https://docs.fritz.ai/develop/vision/pose-estimation/human-pose-estimation/about.html)
+- [Documentation](https://docs.fritz.ai/develop/vision/pose-estimation/human-pose-estimation/android.html)
 
 ## Fritz AI
 
@@ -31,7 +31,7 @@ Fritz AI is the machine learning platform for iOS and Android developers. Teach 
 git clone https://github.com/fritzlabs/fritz-examples.git
 ```
 
-In Android Studio, choose "Open an existing Android Studio project" and select `PetStickerApp`.
+In Android Studio, choose "Open an existing Android Studio project" and select `PoseEstimationApp`.
 
 **Step 3: Build the Android Studio Project**
 
@@ -39,7 +39,7 @@ Select "Build > Make Project" from the top nav. Download any missing libraries i
 
 **Step 4: Install the app onto your device**
 
-With your Android device connected, select `Run > Run App` from the top nav. When running the app for the first time, you'll have to give permissions to access the camera. After the app is installed and running, take a picture of a pet and you'll see a preview of the sticker. You can then save the sticker to your photo gallery.
+With your Android device connected, select `Run > Run App` from the top nav. When running the app for the first time, you'll have to give permissions to access the camera. After the app is installed and running, take a picture of a person and you'll see a detected pose overlayed on the image. Afterwards you can choose to record the model predictions if your model is connected to an image collection.
 
 ## Official Documentation
 

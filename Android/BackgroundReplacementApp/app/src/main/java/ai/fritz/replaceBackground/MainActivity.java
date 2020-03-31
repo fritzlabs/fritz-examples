@@ -30,6 +30,7 @@ import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
+import ai.fritz.vision.ImageOrientation;
 import ai.fritz.vision.ImageRotation;
 import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
@@ -45,7 +46,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
 
     private AtomicBoolean shouldSample = new AtomicBoolean(true);
     private FritzVisionSegmentationPredictor predictor;
-    private ImageRotation imgRotation;
+    private ImageOrientation orientation;
 
     private FritzVisionSegmentationResult segmentResult;
     private FritzVisionImage visionImage;
@@ -120,7 +121,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
 
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
-        imgRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
 
         snapshotButton = findViewById(R.id.take_picture_btn);
         previewLayout = findViewById(R.id.preview_frame);
@@ -266,7 +267,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
             return;
         }
 
-        visionImage = FritzVisionImage.fromMediaImage(image, imgRotation);
+        visionImage = FritzVisionImage.fromMediaImage(image, orientation);
         image.close();
     }
 }

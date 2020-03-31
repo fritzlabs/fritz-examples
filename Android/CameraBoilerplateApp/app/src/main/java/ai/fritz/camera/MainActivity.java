@@ -7,12 +7,10 @@ import android.util.Size;
 
 public class MainActivity extends LiveCameraActivity {
 
-    private static final String API_KEY = "ENTER YOUR API KEY HERE";
-
     @Override
     protected void initializeFritz() {
-        // TODO: Uncomment this and modify your api key above.
-        // Fritz.configure(this, API_KEY);
+        // TODO: Uncomment this and modify your api key in fritz.xml.
+        // Fritz.configure(this);
     }
 
     @Override

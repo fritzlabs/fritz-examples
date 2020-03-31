@@ -10,7 +10,6 @@ import ai.fritz.aistudio.R;
 import ai.fritz.aistudio.activities.BaseRecordingActivity;
 import ai.fritz.core.FritzOnDeviceModel;
 import ai.fritz.core.utils.FritzModelManager;
-import ai.fritz.core.utils.FritzOptional;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionModels;
@@ -51,10 +50,10 @@ public class ImageSegmentationActivity extends BaseRecordingActivity implements 
     @Override
     protected void loadPredictor(int choice) {
         SegmentationManagedModel managedModel = getManagedModel(choice);
-        FritzOptional<FritzOnDeviceModel> onDeviceModelOpt = FritzModelManager.getActiveOnDeviceModel(managedModel.getModelId());
-        if (onDeviceModelOpt.isPresent()) {
+        FritzOnDeviceModel activeOnDeviceModel = FritzModelManager.getActiveOnDeviceModel(managedModel.getModelId());
+        if (activeOnDeviceModel != null) {
             showPredictorReadyViews();
-            SegmentationOnDeviceModel onDeviceModel = new SegmentationOnDeviceModel(onDeviceModelOpt.get(), managedModel);
+            SegmentationOnDeviceModel onDeviceModel = new SegmentationOnDeviceModel(activeOnDeviceModel, managedModel);
             predictor = FritzVision.ImageSegmentation.getPredictor(onDeviceModel, options);
         } else {
             showPredictorNotReadyViews();
