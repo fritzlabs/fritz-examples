@@ -13,7 +13,7 @@ import ai.fritz.aistudio.R;
 import ai.fritz.aistudio.ui.OverlayView;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionOrientation;
-import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ImageOrientation;
 
 public abstract class BaseLiveVideoActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
 
@@ -21,7 +21,7 @@ public abstract class BaseLiveVideoActivity extends BaseCameraActivity implement
     private AtomicBoolean computing = new AtomicBoolean(false);
     protected FritzVisionImage fritzVisionImage;
 
-    private ImageRotation imageRotation;
+    private ImageOrientation orientation;
     protected Button chooseModelBtn;
 
     @Override
@@ -31,7 +31,7 @@ public abstract class BaseLiveVideoActivity extends BaseCameraActivity implement
 
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
-        imageRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
         chooseModelBtn = findViewById(R.id.chose_model_btn);
 
         setCallback(
@@ -57,7 +57,7 @@ public abstract class BaseLiveVideoActivity extends BaseCameraActivity implement
             image.close();
             return;
         }
-        fritzVisionImage = FritzVisionImage.fromMediaImage(image, imageRotation);
+        fritzVisionImage = FritzVisionImage.fromMediaImage(image, orientation);
         image.close();
 
         runInBackground(

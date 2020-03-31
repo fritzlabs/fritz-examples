@@ -57,9 +57,6 @@
             android:parentActivityName="ai.fritz.aistudio.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="ai.fritz.aistudio.activities.custommodel.CustomTFMobileActivity"
-            android:parentActivityName="ai.fritz.aistudio.activities.MainActivity" />
-        <activity
             android:name="ai.fritz.aistudio.activities.custommodel.CustomTFLiteActivity"
             android:parentActivityName="ai.fritz.aistudio.activities.MainActivity" />
 

@@ -19,14 +19,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String API_KEY = "bbe75c73f8b24e63bc05bf81ed9d2829";
 
     private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fritz.configure(this, API_KEY);
+        Fritz.configure(this);
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.demo_list_view);

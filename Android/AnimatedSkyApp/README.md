@@ -27,6 +27,8 @@ Fritz AI is the machine learning platform for iOS and Android developers. Teach 
 
 [Sign up](https://app.fritz.ai/register?utm_source=github&utm_campaign=fritz-examples) for a free account on Fritz AI in order to get started.
 
+Register the Android app in your Fritz account with the package id "ai.fritz.animatedSky". During registration, you'll receive an API key for the app. Save this for later. To find it in the webapp, you can go to Project Settings > Apps > Your App > Show API Key.
+
 **Step 2: Clone / Fork the fritz-examples repository and open the AnimatedSkyApp app in Android Studio**
 
 ```
@@ -35,11 +37,15 @@ git clone https://github.com/fritzlabs/fritz-examples.git
 
 In Android Studio, choose "Open an existing Android Studio project" and select `AnimatedSkyApp`.
 
-**Step 3: Build the Android Studio Project**
+**Step 3: Edit the fritz.xml file with your API Key**
+
+In app/src/main/res/values/fritz.xml, change the fritz_api_key attribute with the one you received in step 1.
+
+**Step 4: Build the Android Studio Project**
 
 Select "Build > Make Project" from the top nav. Download any missing libraries if applicable. This should sync the gradle dependencies so give the build a second to complete.
 
-**Step 4: Install the app onto your device**
+**Step 5: Install the app onto your device**
 
 With your Android device connected, select `Run > Run App` from the top nav. When running the app for the first time, you'll have to give permissions to access the camera. After the app is installed and running, take a picture outside and watch as we replace the sky with an animated image.
 

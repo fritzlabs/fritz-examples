@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import ai.fritz.aistudio.activities.custommodel.CustomTFLiteActivity;
-import ai.fritz.aistudio.activities.custommodel.CustomTFMobileActivity;
 import ai.fritz.aistudio.activities.vision.ImageLabelingActivity;
 import ai.fritz.aistudio.activities.vision.ImageSegmentationActivity;
 import ai.fritz.aistudio.activities.vision.ObjectDetectionActivity;
@@ -15,11 +14,6 @@ import ai.fritz.aistudio.activities.vision.StyleTransferActivity;
  * Navigation is a helper class for common links throughout the app.
  */
 public class Navigation {
-
-    public static void goToTFMobile(Context context) {
-        Intent tfMobile = new Intent(context, CustomTFMobileActivity.class);
-        context.startActivity(tfMobile);
-    }
 
     public static void goToTFLite(Context context) {
         Intent tflite = new Intent(context, CustomTFLiteActivity.class);

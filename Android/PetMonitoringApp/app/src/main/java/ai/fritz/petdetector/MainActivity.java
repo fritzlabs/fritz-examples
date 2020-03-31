@@ -17,6 +17,7 @@ import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionObject;
 import ai.fritz.vision.FritzVisionOrientation;
+import ai.fritz.vision.ImageOrientation;
 import ai.fritz.vision.ImageRotation;
 import ai.fritz.vision.objectdetection.FritzVisionObjectPredictor;
 import ai.fritz.vision.objectdetection.FritzVisionObjectPredictorOptions;
@@ -143,8 +144,8 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         // STEP 2: Create the FritzVisionImage object from media.Image
         // ------------------------------------------------------------------------
         // TODO: Add code for creating FritzVisionImage from a media.Image object
-        ImageRotation rotationFromCamera = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
-        visionImage = FritzVisionImage.fromMediaImage(image, rotationFromCamera);
+        ImageOrientation orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
+        visionImage = FritzVisionImage.fromMediaImage(image, orientation);
         // ------------------------------------------------------------------------
         // END STEP 2
 

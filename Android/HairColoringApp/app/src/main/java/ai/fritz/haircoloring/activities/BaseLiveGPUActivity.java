@@ -14,14 +14,14 @@ import ai.fritz.haircoloring.R;
 import ai.fritz.vision.FritzSurfaceView;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionOrientation;
-import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ImageOrientation;
 
 public abstract class BaseLiveGPUActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
 
     private static final String TAG = BaseLiveGPUActivity.class.getSimpleName();
     private AtomicBoolean computing = new AtomicBoolean(false);
 
-    private ImageRotation imageRotation;
+    private ImageOrientation orientation;
     protected Button chooseModelBtn;
     protected ImageButton cameraSwitchBtn;
     protected FritzVisionImage fritzVisionImage;
@@ -34,7 +34,7 @@ public abstract class BaseLiveGPUActivity extends BaseCameraActivity implements 
 
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
-        imageRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
         chooseModelBtn = findViewById(R.id.chose_model_btn);
         cameraSwitchBtn = findViewById(R.id.camera_switch_btn);
         fritzSurfaceView = findViewById(R.id.gpuimageview);
@@ -60,7 +60,7 @@ public abstract class BaseLiveGPUActivity extends BaseCameraActivity implements 
             image.close();
             return;
         }
-        fritzVisionImage = FritzVisionImage.fromMediaImage(image, imageRotation);
+        fritzVisionImage = FritzVisionImage.fromMediaImage(image, orientation);
         runInference(fritzVisionImage);
         image.close();
         computing.set(false);

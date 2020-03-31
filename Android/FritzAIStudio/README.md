@@ -32,6 +32,8 @@ We currently support both TensorFlow Lite and TensorFlow Mobile for Android.
 
 [Sign up](https://app.fritz.ai/register?utm_source=github&utm_campaign=fritz-examples) for a free account on Fritz AI in order to get started.
 
+Register the Android app in your Fritz account with the package id "ai.fritz.aistudiobuild". During registration, you'll receive an API key for the app. Save this for later. To find it in the webapp, you can go to Project Settings > Apps > Your App > Show API Key.
+
 **Step 2: Clone / Fork the fritz-examples repository and open the demo app in Android Studio**
 
 ```
@@ -40,11 +42,15 @@ git clone https://github.com/fritzlabs/fritz-examples.git
 
 In Android Studio, choose "Open an existing Android Studio project" and select `FritzAIStudio`.
 
-**Step 3: Build the Android Studio Project**
+**Step 3: Edit the fritz.xml file with your API Key**
+
+In app/src/main/res/values/fritz.xml, change the fritz_api_key attribute with the one you received in step 1.
+
+**Step 4: Build the Android Studio Project**
 
 Select "Build > Make Project" from the top nav. Download any missing libraries if applicable. This should sync the gradle dependencies so give the build a second to complete.
 
-**Step 4: Install the app onto your device**
+**Step 5: Install the app onto your device**
 
 With your Android device connected, select `Run > Run App` from the top nav. After it's installed, select any of the options to try out the different ML features. When running the app for the first time, you'll have to give permissions to access the camera.
 

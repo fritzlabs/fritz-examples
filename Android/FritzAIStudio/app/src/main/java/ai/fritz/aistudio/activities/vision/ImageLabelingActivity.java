@@ -17,7 +17,7 @@ import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
-import ai.fritz.vision.ImageRotation;
+import ai.fritz.vision.ImageOrientation;
 import ai.fritz.vision.imagelabeling.FritzVisionLabelPredictor;
 import ai.fritz.vision.imagelabeling.FritzVisionLabelResult;
 import ai.fritz.vision.imagelabeling.LabelingOnDeviceModel;
@@ -38,7 +38,7 @@ public class ImageLabelingActivity extends BaseCameraActivity implements ImageRe
     private FritzVisionLabelPredictor predictor;
     private FritzVisionLabelResult labelResult;
 
-    private ImageRotation imgRotation;
+    private ImageOrientation orientation;
 
     @BindView(R.id.app_toolbar)
     Toolbar appBar;
@@ -64,7 +64,7 @@ public class ImageLabelingActivity extends BaseCameraActivity implements ImageRe
 
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
-        imgRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
         LabelingOnDeviceModel onDeviceModel = FritzVisionModels.getImageLabelingOnDeviceModel();
         predictor = FritzVision.ImageLabeling.getPredictor(onDeviceModel);
     }
@@ -82,7 +82,7 @@ public class ImageLabelingActivity extends BaseCameraActivity implements ImageRe
             return;
         }
 
-        final FritzVisionImage fritzImage = FritzVisionImage.fromMediaImage(image, imgRotation);
+        final FritzVisionImage fritzImage = FritzVisionImage.fromMediaImage(image, orientation);
         image.close();
 
 

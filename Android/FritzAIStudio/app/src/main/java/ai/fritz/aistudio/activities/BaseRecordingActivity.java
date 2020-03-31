@@ -29,6 +29,7 @@ import ai.fritz.aistudio.ui.OverlayView;
 import ai.fritz.aistudio.utils.VideoProcessingQueue;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionOrientation;
+import ai.fritz.vision.ImageOrientation;
 import ai.fritz.vision.ImageRotation;
 
 
@@ -43,7 +44,7 @@ public abstract class BaseRecordingActivity extends BaseCameraActivity implement
     private AtomicBoolean isRecording = new AtomicBoolean(false);
 
     private OverlayView overlayView;
-    private ImageRotation imageRotationFromCamera;
+    private ImageOrientation orientation;
 
     private ChooseModelDialog imageSegDialog;
     private Button takeVideoBtn;
@@ -115,7 +116,7 @@ public abstract class BaseRecordingActivity extends BaseCameraActivity implement
             }
         });
 
-        imageRotationFromCamera = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
 
         // Dialog for image seg choice;
         imageSegDialog = new ChooseModelDialog(getModelOptionsTextId(), new DialogInterface.OnClickListener() {
@@ -290,7 +291,7 @@ public abstract class BaseRecordingActivity extends BaseCameraActivity implement
 
         // Add the frame to a queue to process
         lastRecordedFrameAt.set(System.currentTimeMillis());
-        final FritzVisionImage fritzImage = FritzVisionImage.fromMediaImage(image, imageRotationFromCamera);
+        final FritzVisionImage fritzImage = FritzVisionImage.fromMediaImage(image, orientation);
         videoProcessingQueue.addVisionImage(fritzImage);
         image.close();
     }

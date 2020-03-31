@@ -215,7 +215,7 @@ public abstract class BaseCameraActivity extends AppCompatActivity implements On
     }
 
     public void requestRender() {
-        final OverlayView overlay = (OverlayView) findViewById(R.id.debug_overlay);
+        final OverlayView overlay = findViewById(R.id.debug_overlay);
         if (overlay != null) {
             overlay.postInvalidate();
         }

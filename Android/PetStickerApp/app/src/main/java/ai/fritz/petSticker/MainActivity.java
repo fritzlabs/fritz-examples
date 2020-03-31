@@ -24,6 +24,7 @@ import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
 import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
+import ai.fritz.vision.ImageOrientation;
 import ai.fritz.vision.ImageRotation;
 import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.imagesegmentation.FritzVisionSegmentationPredictor;
@@ -35,11 +36,10 @@ import ai.fritz.vision.imagesegmentation.SegmentationOnDeviceModel;
 
 public class MainActivity extends BaseCameraActivity implements ImageReader.OnImageAvailableListener {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String API_KEY = "bbe75c73f8b24e63bc05bf81ed9d2829";
 
     private AtomicBoolean shouldSample = new AtomicBoolean(true);
     private FritzVisionSegmentationPredictor predictor;
-    private ImageRotation imgRotation;
+    private ImageOrientation orientation;
 
     private FritzVisionSegmentationResult segmentResult;
     private FritzVisionImage visionImage;
@@ -58,7 +58,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fritz.configure(this, API_KEY);
+        Fritz.configure(this);
 
         SegmentationOnDeviceModel onDeviceModel = FritzVisionModels.getPetSegmentationOnDeviceModel(ModelVariant.FAST);
         options = new FritzVisionSegmentationPredictorOptions();
@@ -73,7 +73,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
 
     @Override
     public void onPreviewSizeChosen(final Size size, final Size cameraSize, final int rotation) {
-        imgRotation = FritzVisionOrientation.getImageRotationFromCamera(this, cameraId);
+        orientation = FritzVisionOrientation.getImageOrientationFromCamera(this, cameraId);
 
         snapshotButton = findViewById(R.id.take_picture_btn);
         previewLayout = findViewById(R.id.preview_frame);
@@ -213,7 +213,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
             image.close();
             return;
         }
-        visionImage = FritzVisionImage.fromMediaImage(image, imgRotation);
+        visionImage = FritzVisionImage.fromMediaImage(image, orientation);
         image.close();
     }
 }
