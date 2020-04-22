@@ -17,6 +17,7 @@ import ai.fritz.core.Fritz;
 import ai.fritz.objectdetection.R;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionObject;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageOrientation;
@@ -54,6 +55,9 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fritz.configure(this);
+        // The code below loads a custom trained object detection model and creates a predictor that will be used to identify objects in live video.
+        // Custom object detection models can be trained with the Fritz AI platform. To use a pre-trained object detection model,
+        // see the FritzAIStudio demo in this repo.
         ObjectDetectionOnDeviceModel objectOnDeviceModel = ObjectDetectionOnDeviceModel.buildFromModelConfigFile("object_recording_model.json");
         predictor = FritzVision.ObjectDetection.getPredictor(objectOnDeviceModel);
     }
@@ -111,12 +115,17 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
                         canvas.drawBitmap(bitmap, null, new RectF(0, 0, cameraViewSize.getWidth(), cameraViewSize.getHeight()), null);
                     }
                 });
+
         recordSpinner = findViewById(R.id.record_spinner);
         recordButton = findViewById(R.id.record_prediction_btn);
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 recordSpinner.setVisibility(View.VISIBLE);
+                // To record predictions and send data back to Fritz AI via the Data Collection System, use the predictors's record method.
+                // In addition to the input image, predicted model results can be collected as well as user-modified annotations.
+                // This allows developers to both gather data on model performance and have users collect additional ground truth data for future model retraining.
+                // Note, the Data Collection System is only available on paid plans.
                 predictor.record(visionImage, objectResult, null, () -> {
                     switchPreviewView();
                     return null;
