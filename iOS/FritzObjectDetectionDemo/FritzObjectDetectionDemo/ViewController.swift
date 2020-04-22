@@ -156,7 +156,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     options.threshold = confidenceThreshold
 
     guard let results = try? visionModel.predict(image, options: options) else { return }
-
+    
+    // To record predictions and send data back to Fritz AI via the Data Collection System, use the predictors's record method.
+    // In addition to the input image, predicted model results can be collected as well as user-modified annotations.
+    // This allows developers to both gather data on model performance and have users collect additional ground truth data for future model retraining.
+    // Note, the Data Collection System is only available on paid plans.
+    // visionModel.record(image, predicted: results, modified: nil)
     if results.count > 0 {
       DispatchQueue.main.async {
         self.drawBoxes(predictions: results)

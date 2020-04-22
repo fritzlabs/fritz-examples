@@ -17,8 +17,10 @@ import ai.fritz.core.Fritz;
 import ai.fritz.poseestimationdemo.R;
 import ai.fritz.vision.FritzVision;
 import ai.fritz.vision.FritzVisionImage;
+import ai.fritz.vision.FritzVisionModels;
 import ai.fritz.vision.FritzVisionOrientation;
 import ai.fritz.vision.ImageOrientation;
+import ai.fritz.vision.ModelVariant;
 import ai.fritz.vision.poseestimation.FritzVisionPosePredictor;
 import ai.fritz.vision.poseestimation.FritzVisionPoseResult;
 import ai.fritz.vision.poseestimation.HumanSkeleton;
@@ -55,8 +57,10 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fritz.configure(this);
+        // The code below loads a custom trained pose estimation model and creates a predictor that will be used to identify poses in live video.
+        // Custom pose estimation models can be trained with the Fritz AI platform. To use a pre-trained pose estimation model,
+        // see the FritzAIStudio demo in this repo.
         PoseOnDeviceModel poseEstimationOnDeviceModel = PoseOnDeviceModel.buildFromModelConfigFile("pose_recording_model.json", new HumanSkeleton());
-        predictor = FritzVision.PoseEstimation.getPredictor(poseEstimationOnDeviceModel);
     }
 
     @Override
@@ -112,12 +116,17 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
                         canvas.drawBitmap(bitmap, null, new RectF(0, 0, cameraViewSize.getWidth(), cameraViewSize.getHeight()), null);
                     }
                 });
+
         recordSpinner = findViewById(R.id.record_spinner);
         recordButton = findViewById(R.id.record_prediction_btn);
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 recordSpinner.setVisibility(View.VISIBLE);
+                // To record predictions and send data back to Fritz AI via the Data Collection System, use the predictors's record method.
+                // In addition to the input image, predicted model results can be collected as well as user-modified annotations.
+                // This allows developers to both gather data on model performance and have users collect additional ground truth data for future model retraining.
+                // Note, the Data Collection System is only available on paid plans.
                 predictor.record(visionImage, poseResult, null, () -> {
                     switchPreviewView();
                     return null;
