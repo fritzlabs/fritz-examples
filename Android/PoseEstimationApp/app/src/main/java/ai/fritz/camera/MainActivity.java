@@ -61,6 +61,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         // Custom pose estimation models can be trained with the Fritz AI platform. To use a pre-trained pose estimation model,
         // see the FritzAIStudio demo in this repo.
         PoseOnDeviceModel poseEstimationOnDeviceModel = PoseOnDeviceModel.buildFromModelConfigFile("pose_recording_model.json", new HumanSkeleton());
+        predictor = FritzVision.PoseEstimation.getPredictor(poseEstimationOnDeviceModel);
     }
 
     @Override
