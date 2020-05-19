@@ -2,7 +2,7 @@
 
 [![Twitter](https://img.shields.io/badge/twitter-@fritzlabs-blue.svg?style=flat)](http://twitter.com/fritzlabs)
 
-Fritz AI is the machine learning platform for iOS and Android developers. Teach your mobile apps to see, hear, sense, and think. Explore our [pre-trained APIs](https://www.fritz.ai/product/pretrained.html?utm_source=github&utm_campaign=fritz-examples) to get started quickly, or check out [our end-to-end platform](https://www.fritz.ai/product/platform.html?utm_source=github&utm_campaign=fritz-examples) to build and deploy custom models.
+Fritz AI is the machine learning platform for iOS and Android developers. Teach your mobile apps to see, hear, sense, and think. Explore our [pre-trained APIs](https://www.fritz.ai/product/pretrained.html?utm_source=github&utm_campaign=fritz-examples) to get started quickly, or check out [Fritz AI Studio](https://www.fritz.ai/product/studio.html?utm_source=github&utm_campaign=fritz-examples) to build and deploy custom models.
 
 If you're ready to sart building, [sign up](https://fritz.ai/pricing?utm_source=github&utm_campaign=fritz-examples) for a free account to see how you can include machine learning features in your apps.
 
