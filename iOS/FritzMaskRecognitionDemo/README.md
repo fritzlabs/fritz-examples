@@ -4,7 +4,7 @@
 
 In this app, we use the Fritz AI Studio to train a model and create an app that detects whether a person in an image or video is wearing a face mask.
 
-For the full tutorial, visit [our post on Heartbeat](https://heartbeat.fritz.ai/pose-estimation-on-ios-with-fritz-60c8e5f7d195).
+For the full tutorial, visit [our post on Heartbeat](https://heartbeat.fritz.ai/building-an-on-device-face-mask-detector-with-fritz-ai-studio-874a88ae2702).
 
 <img src="https://thumbs.gfycat.com/MasculineShamefulHippopotamus-size_restricted.gif" width="250"/>
 
