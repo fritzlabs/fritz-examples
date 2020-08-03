@@ -116,7 +116,7 @@ public class MainActivity extends BaseCameraActivity implements ImageReader.OnIm
         snapshotOverlay.setCallback(
                 canvas -> {
                     if (labelResult != null) {
-                        canvas.drawBitmap(visionImage.buildSourceBitmap(), null, new RectF(0, 0, cameraViewSize.getWidth(), cameraViewSize.getHeight()), null);
+                        canvas.drawBitmap(visionImage.buildOrientedBitmap(), null, new RectF(0, 0, cameraViewSize.getWidth(), cameraViewSize.getHeight()), null);
                     }
                 });
 
