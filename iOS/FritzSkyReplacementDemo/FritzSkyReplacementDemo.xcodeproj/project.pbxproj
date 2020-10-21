@@ -135,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 837BFB7B22AAE6FB00010A93 /* Build configuration list for PBXProject "SkySegmentationGifCreator" */;
+			buildConfigurationList = 837BFB7B22AAE6FB00010A93 /* Build configuration list for PBXProject "FritzSkyReplacementDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -397,7 +397,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		837BFB7B22AAE6FB00010A93 /* Build configuration list for PBXProject "SkySegmentationGifCreator" */ = {
+		837BFB7B22AAE6FB00010A93 /* Build configuration list for PBXProject "FritzSkyReplacementDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				837BFB9022AAE6FC00010A93 /* Debug */,

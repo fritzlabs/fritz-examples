@@ -11,7 +11,7 @@ import Fritz
 
 
 
-extension FritzVisionSegmentationModel: ImagePredictor {
+extension FritzVisionSegmentationPredictor: ImagePredictor {
 
   private func predictSingleClass(_ image: FritzVisionImage, options: ConfigurableOptions) throws -> UIImage? {
 

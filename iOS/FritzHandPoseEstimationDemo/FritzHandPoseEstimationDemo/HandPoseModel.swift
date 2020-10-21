@@ -22,30 +22,30 @@ public enum HandSkeleton: Int, SkeletonType {
   case middle
   case ring
   case pinky
-  
+
   public static let objectName = "hand"
 }
 
 @available(iOS 11.0, *)
 public final class HandPoseModel: FritzVisionPosePredictor<HandSkeleton>, DownloadableModel {
-  
+
   @objc public static let modelConfig = FritzModelConfiguration(
     identifier: "4845423b36014942b9fb274fe751e8da",
     version: 6
   )
-  
+
   @objc public static var managedModel: FritzManagedModel {
     return modelConfig.buildManagedModel()
   }
-  
+
   @objc public static var wifiRequiredForModelDownload: Bool = _wifiRequiredForModelDownload
 
   public static func fetchModel(completionHandler: @escaping (HandPoseModel?, Error?) -> Void) {
     _fetchModel(completionHandler: completionHandler)
   }
-  
+
   public convenience init() {
-    let model = HandPose().fritz().model as! FritzMLModel
+    let model = HandPose().fritzModel()
     self.init(model: model)
   }
 }

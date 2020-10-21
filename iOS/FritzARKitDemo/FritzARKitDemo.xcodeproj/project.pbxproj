@@ -137,7 +137,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83305C6C228399E500F93F6B /* Build configuration list for PBXProject "ARPoseDemo" */;
+			buildConfigurationList = 83305C6C228399E500F93F6B /* Build configuration list for PBXProject "FritzARKitDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -407,7 +407,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83305C6C228399E500F93F6B /* Build configuration list for PBXProject "ARPoseDemo" */ = {
+		83305C6C228399E500F93F6B /* Build configuration list for PBXProject "FritzARKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83305C83228399E600F93F6B /* Debug */,

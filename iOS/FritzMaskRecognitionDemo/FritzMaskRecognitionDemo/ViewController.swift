@@ -32,7 +32,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
   @IBOutlet weak var fpsLabel: UILabel!
   @IBOutlet weak var modelIdLabel: UILabel!
   @IBOutlet weak var modelVersionLabel: UILabel!
-  
+
   @IBOutlet weak var predictionLabel: UILabel! {
       didSet { predictionLabel.text = "Loading... 🚀" }
   }
@@ -46,11 +46,11 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
   var screenWidth: Double?
 
   // Use a pre-trained image labeling model from Fritz AI.
-  lazy var visionModel = FritzVisionLabelPredictor(model: MaskRecognition().fritz())
+  lazy var visionModel = FritzVisionLabelPredictor(model: MaskRecognition())
 
   // To use your own custom image labeling model, follow the instructions here:
   // https://docs.fritz.ai/develop/vision/image-labeling/ios.html
-  // lazy var visionModel = FritzVisionLabelPredictor(model: YourModelName().fritz())
+  // lazy var visionModel = FritzVisionLabelPredictor(model: YourModelName())
 
   // Only show labels above a certain confidence threshold. For new models in development,
   // you may need to lower this to see predictions. As you improve your model, you can
@@ -88,7 +88,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     self.modelIdLabel.textAlignment = .center
     self.cameraView?.bringSubviewToFront(self.modelVersionLabel)
     self.modelVersionLabel.textAlignment = .center
-    
+
     // Setup prediction labels
     self.cameraView?.bringSubviewToFront(self.predictionLabel)
     self.predictionLabel.textAlignment = .center
@@ -143,7 +143,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
 
     guard let results = try? visionModel.predict(image, options: options) else { return }
-    
+
     // Display results
     if results.count > 0 {
       let observation = results[0]
@@ -152,7 +152,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     } else {
       self.setNoResult()
     }
-    
+
     // To record predictions and send data back to Fritz AI via the Data Collection System, use the predictors's record method.
     // In addition to the input image, predicted model results can be collected as well as user-modified annotations.
     // This allows developers to both gather data on model performance and have users collect additional ground truth data for future model retraining.
@@ -161,7 +161,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
     updateLabels()
   }
-  
+
   private func setResult(text: String, confidence: Int) {
       DispatchQueue.main.async {
           self.predictionLabel.text = text.capitalized

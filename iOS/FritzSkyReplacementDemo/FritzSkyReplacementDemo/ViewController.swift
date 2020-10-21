@@ -73,14 +73,13 @@ class ViewController: UIViewController {
   ///
   /// - Parameters:
   ///   - image: Image to mask
-  ///   - mask: Input mask.  Reduces pixel opacity by mask alpha value. For instance
+  ///   - mask: Input mask.  Reduces pixel opacity by mask alpha value. For instance,
   ///       an alpha value of 255 will be completely opaque, 0 will be completely transparent
   ///       and a value of 125 will be partially transparent.
   /// - Returns: Image mask with background removed.
   func createMask(of image: UIImage, fromMask mask: UIImage, withBackground background: UIImage? = nil) -> UIImage? {
-    guard let imageCG = image.cgImage, let maskCG = mask.cgImage else { return nil }
+    guard let imageCG = image.cgImage, let maskCI = mask.ciImage else { return nil }
     let imageCI = CIImage(cgImage: imageCG)
-    let maskCI = CIImage(cgImage: maskCG)
 
     let background = background?.cgImage != nil ? CIImage(cgImage: background!.cgImage!) : CIImage.empty()
 
@@ -106,6 +105,7 @@ class ViewController: UIViewController {
       )
       else { return }
 
+    // Create a segmentation mask backed by a CIImage
     guard let skyRemoved = createMask(of: image, fromMask: mask) else { return }
 
     DispatchQueue.main.async {
