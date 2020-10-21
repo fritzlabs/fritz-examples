@@ -1,5 +1,5 @@
 
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 use_frameworks!
 inhibit_all_warnings!
@@ -10,7 +10,7 @@ target 'FritzAIStudio' do
   pod 'Crashlytics', '~> 3.9'
   pod 'Fabric', '~> 1.7'
   pod 'ColorSlider', '~> 4.4'
-  pod 'Fritz', '~> 5.3.7'
+  pod 'Fritz', '6.0.0'
   pod 'Fritz/VisionObjectModel/Fast'
   pod 'Fritz/VisionStyleModel/Paintings'
   pod 'Fritz/VisionStyleModel/Patterns'

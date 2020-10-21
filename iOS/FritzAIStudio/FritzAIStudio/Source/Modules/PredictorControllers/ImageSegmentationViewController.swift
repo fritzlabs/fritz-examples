@@ -44,24 +44,24 @@ class ImageSegmentationViewController: FeatureViewController {
       else { return nil }
 
     let modelType = predictorDetails.featureDescription
-    var segmentationModel: FritzVisionSegmentationModel? = nil
+    var segmentationPredictor: FritzVisionSegmentationPredictor? = nil
     
     switch modelType {
     case .peopleSegmentation:
-      segmentationModel = FritzVisionPeopleSegmentationPredictor(model: model)
+      segmentationPredictor = FritzVisionPeopleSegmentationPredictor(model: model)
     case .livingRoomSegmentation:
-      segmentationModel = FritzVisionLivingRoomSegmentationPredictor(model: model)
+      segmentationPredictor = FritzVisionLivingRoomSegmentationPredictor(model: model)
     case .outdoorSegmentation:
-      segmentationModel = FritzVisionOutdoorSegmentationPredictor(model: model)
+      segmentationPredictor = FritzVisionOutdoorSegmentationPredictor(model: model)
     case .petSegmentation:
-      segmentationModel = FritzVisionOutdoorSegmentationPredictor(model: model)
+      segmentationPredictor = FritzVisionPetSegmentationPredictor(model: model)
     case .skySegmentation:
-      segmentationModel = FritzVisionOutdoorSegmentationPredictor(model: model)
+      segmentationPredictor = FritzVisionSkySegmentationPredictor(model: model)
     default:
       return nil
     }
-    if let segmentationModel = segmentationModel {
-      return AIStudioImagePredictor(model: segmentationModel, predictorDetails: predictorDetails)
+    if let segmentationPredictor = segmentationPredictor {
+      return AIStudioImagePredictor(model: segmentationPredictor, predictorDetails: predictorDetails)
     }
     return nil
   }

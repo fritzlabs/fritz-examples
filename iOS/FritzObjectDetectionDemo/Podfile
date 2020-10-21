@@ -1,10 +1,10 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '12.0'
 
 target 'FritzObjectDetectionDemo' do
   use_frameworks!
 
-  pod 'Fritz', '~> 5.3.7'
+  pod 'Fritz', '6.0.0'
   pod 'Fritz/VisionObjectModel/Fast'
 
 end

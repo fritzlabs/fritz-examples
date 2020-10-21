@@ -16,15 +16,10 @@ extension FritzCameraViewController: FritzCameraDelegate {
   func capture(_ cameraSession: FritzCamera, didCaptureFritzImage image: FritzVisionImage?, timestamp: Date) {
     let outputImage = try? delegate?.processImage(image)
 
-    var backgroundImage: UIImage?
-    if streamBackgroundImage, let rotatedImage = image?.rotate() {
-      backgroundImage = UIImage(pixelBuffer: rotatedImage)
-    }
-
     DispatchQueue.main.async {
       self.cameraView.image = outputImage
       if self.streamBackgroundImage {
-        self.backgroundView.image = backgroundImage
+        self.backgroundView.image = image?.rotated()
       }
     }
   }

@@ -35,7 +35,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
   // To use your own custom object detection model, follow the instructions here:
   // https://docs.fritz.ai/develop/vision/object-detection/ios.html
-  // lazy var visionModel = FritzVisionObjectPredictor(model: YourModelName().fritz())
+  // lazy var visionModel = FritzVisionObjectPredictor(model: YourModelName())
 
   // Only show detections above a certain confidence threshold. For new models in development,
   // you may need to lower this to see predictions. As you improve your model, you can
@@ -156,7 +156,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     options.threshold = confidenceThreshold
 
     guard let results = try? visionModel.predict(image, options: options) else { return }
-    
+
     // To record predictions and send data back to Fritz AI via the Data Collection System, use the predictors's record method.
     // In addition to the input image, predicted model results can be collected as well as user-modified annotations.
     // This allows developers to both gather data on model performance and have users collect additional ground truth data for future model retraining.
