@@ -4,7 +4,7 @@
 target 'FritzMaskRecognitionDemo' do
   use_frameworks!
 
-  pod 'Fritz', '6.0.0'
+  pod 'Fritz', '6.1.1'
   pod 'Fritz/VisionLabelModel/Fast'
 
 end

@@ -7,7 +7,7 @@ target 'FritzHairColorDemo' do
 
   # Pods for FritzHairColorDemo
   pod 'ColorSlider', '~> 4.4'
-  pod 'Fritz', '6.0.0'
+  pod 'Fritz', '6.1.1'
   pod 'Fritz/VisionSegmentationModel/Hair/Fast'
 
 end

@@ -1,25 +1,25 @@
 PODS:
   - ColorSlider (4.4)
-  - Fritz (6.0.0):
-    - Fritz/Vision (= 6.0.0)
-  - Fritz/Vision (6.0.0):
-    - FritzBase/Vision (= 6.0.0)
-  - Fritz/VisionSegmentationModel/Hair/Fast (6.0.0):
-    - FritzVisionHairSegmentationModelFast (= 6.0.0)
-  - FritzBase/Core (6.0.0)
-  - FritzBase/CoreMLHelpers (6.0.0)
-  - FritzBase/ManagedModel (6.0.0):
-    - FritzBase/Core (= 6.0.0)
-  - FritzBase/Vision (6.0.0):
-    - FritzBase/Core (= 6.0.0)
-    - FritzBase/CoreMLHelpers (= 6.0.0)
-    - FritzBase/ManagedModel (= 6.0.0)
-  - FritzVisionHairSegmentationModelFast (6.0.0):
-    - FritzBase/Vision (= 6.0.0)
+  - Fritz (6.1.1):
+    - Fritz/Vision (= 6.1.1)
+  - Fritz/Vision (6.1.1):
+    - FritzBase/Vision (= 6.1.1)
+  - Fritz/VisionSegmentationModel/Hair/Fast (6.1.1):
+    - FritzVisionHairSegmentationModelFast (~> 6.1.1)
+  - FritzBase/Core (6.1.1)
+  - FritzBase/CoreMLHelpers (6.1.1)
+  - FritzBase/ManagedModel (6.1.1):
+    - FritzBase/Core (= 6.1.1)
+  - FritzBase/Vision (6.1.1):
+    - FritzBase/Core (= 6.1.1)
+    - FritzBase/CoreMLHelpers (= 6.1.1)
+    - FritzBase/ManagedModel (= 6.1.1)
+  - FritzVisionHairSegmentationModelFast (6.1.1):
+    - FritzBase/Vision (~> 6.1.1)
 
 DEPENDENCIES:
   - ColorSlider (~> 4.4)
-  - Fritz (= 6.0.0)
+  - Fritz (= 6.1.1)
   - Fritz/VisionSegmentationModel/Hair/Fast
 
 SPEC REPOS:
@@ -31,10 +31,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
-  Fritz: e3bc09fd607d377803cbc5a9e48500f564f1b8a5
-  FritzBase: 677b9359a88b3fde5589215c5bb7b8a1a8c439d7
-  FritzVisionHairSegmentationModelFast: fd97ef368559d98ae7697b437560c5c9c179419e
+  Fritz: 87867346c5a4a94c63d1b45bd0c5f8911f609f66
+  FritzBase: 1bc60871c49effc8f836816702894423bf61be08
+  FritzVisionHairSegmentationModelFast: 5ff8237db632d3617b03aa85eb84a587354ad371
 
-PODFILE CHECKSUM: be9c30aea5286857f71646d782679b48833bfd7d
+PODFILE CHECKSUM: 6c0e8e088c5ac45e19baf965f828b8d8b0929d2a
 
 COCOAPODS: 1.9.1
