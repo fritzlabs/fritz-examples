@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3B3BCBF52360AE3600898CF5 /* Build configuration list for PBXProject "FritzImageLabelingDemo" */;
+			buildConfigurationList = 3B3BCBF52360AE3600898CF5 /* Build configuration list for PBXProject "FritzObjectDetectionDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -387,7 +387,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B3BCBF52360AE3600898CF5 /* Build configuration list for PBXProject "FritzImageLabelingDemo" */ = {
+		3B3BCBF52360AE3600898CF5 /* Build configuration list for PBXProject "FritzObjectDetectionDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B3BCC0C2360AE3700898CF5 /* Debug */,

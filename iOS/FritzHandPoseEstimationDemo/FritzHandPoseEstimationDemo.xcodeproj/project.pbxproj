@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8350938F2266E79700A81041 /* Build configuration list for PBXProject "FritzHandPoseEstimationDemo" */;
+			buildConfigurationList = 8350938F2266E79700A81041 /* Build configuration list for PBXProject "FritzPoseEstimationDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -410,7 +410,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8350938F2266E79700A81041 /* Build configuration list for PBXProject "FritzHandPoseEstimationDemo" */ = {
+		8350938F2266E79700A81041 /* Build configuration list for PBXProject "FritzPoseEstimationDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				835093A42266E79A00A81041 /* Debug */,

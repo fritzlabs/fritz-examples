@@ -8,7 +8,7 @@ Fritz AI Studio is a collection of unique experiences built with machine learnin
 
 Fritz AI is the machine learning platform for iOS and Android developers. Teach your mobile apps to see, hear, sense, and think. Start with our ready-to-use feature APIs or connect and deploy your own custom models.
 
-[Sign up](https://app.fritz.ai/register?utm_source=github&utm_campaign=fritz-examples) for a free account on Fritz AI in order to get started with machine learning in your apps.
+[Sign up](https://www.fritz.ai/pricing/?utm_source=github&utm_campaign=fritz-examples) for a Fritz AI plan to get started with machine learning in your apps.
 
 ## Getting Started
 
