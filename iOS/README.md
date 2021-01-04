@@ -2,7 +2,7 @@
 
 Fritz AI is the machine learning platform for iOS and Android developers. Teach your mobile apps to see, hear, sense, and think. Start with our ready-to-use feature APIs or connect and deploy your own custom models.
 
-[Sign up](https://app.fritz.ai/register?utm_source=github&utm_campaign=fritz-examples) for an account on Fritz AI in order to get started.
+[Sign up](https://www.fritz.ai/pricing/?utm_source=github&utm_campaign=fritz-examples) for a Fritz AI plan to get started.
 
 ## Examples for iOS
 

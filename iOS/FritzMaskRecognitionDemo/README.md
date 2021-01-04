@@ -21,9 +21,9 @@ Fritz AI is the machine learning platform for iOS and Android developers. Teach 
 
 ## Getting Started
 
-**Step 1: Create a Fritz AI Account**
+**Step 1: Choose a Fritz AI Plan**
 
-[Sign up](https://app.fritz.ai/register?utm_source=github&utm_campaign=mask-recogntion) for a free Studio Sandbox account on Fritz AI in order to get started.
+[Sign up](https://www.fritz.ai/pricing?utm_source=github&utm_campaign=mask-recogntion) for a Fritz AI plan in order to get started.
 
 **Step 2: Clone / Fork the fritz-examples repository and open FritzMaskRecognitionDemo**
 
