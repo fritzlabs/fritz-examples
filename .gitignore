@@ -12,7 +12,7 @@ fastlane/README.md
 #### Xcode
 xcuserdata/
 *.xcworkspace
-*.zip
+iOS/*.zip
 *.ipa
 
 # For rswift build workaround
